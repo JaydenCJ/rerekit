@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="420" viewBox="0 0 760 420" font-family="Menlo, Consolas, monospace" font-size="14">
+  <rect width="760" height="420" rx="10" fill="#101418"/>
+  <circle cx="24" cy="22" r="6" fill="#ff5f56"/>
+  <circle cx="44" cy="22" r="6" fill="#ffbd2e"/>
+  <circle cx="64" cy="22" r="6" fill="#27c93f"/>
+  <text x="380" y="27" fill="#8b949e" text-anchor="middle" font-size="12">rerekit — record a conflict resolution once, replay it on every rebase</text>
+  <g fill="#c9d1d9">
+    <text x="24" y="62"><tspan fill="#7ee787">$</tspan> rerekit snap</text>
+    <text x="24" y="84">snapped <tspan fill="#79c0ff">src/config.go</tspan> (1 conflict)</text>
+    <text x="24" y="118"><tspan fill="#8b949e"># resolve the conflict in your editor, then:</tspan></text>
+    <text x="24" y="140"><tspan fill="#7ee787">$</tspan> rerekit record</text>
+    <text x="24" y="162">recorded <tspan fill="#d2a8ff">817c3a89d026</tspan> <tspan fill="#79c0ff">src/config.go</tspan> (new)</text>
+    <text x="24" y="196"><tspan fill="#7ee787">$</tspan> git add .rerekit &amp;&amp; git commit -m <tspan fill="#a5d6ff">"record conflict resolution"</tspan></text>
+    <text x="24" y="230"><tspan fill="#8b949e"># next rebase, same conflict — anyone on the team:</tspan></text>
+    <text x="24" y="252"><tspan fill="#7ee787">$</tspan> rerekit apply</text>
+    <text x="24" y="274">resolved <tspan fill="#79c0ff">src/config.go</tspan>: 1 of 1 conflicts</text>
+    <text x="24" y="296">rerekit apply: <tspan fill="#7ee787">1 conflict resolved</tspan>, 0 remaining</text>
+    <text x="24" y="330"><tspan fill="#7ee787">$</tspan> cat .rerekit/resolutions/817c3a89d026.res</text>
+    <text x="24" y="352" fill="#8b949e">--- ours ---       <tspan fill="#f85149">|	return Options{Retries: 3, Timeout: 30}</tspan></text>
+    <text x="24" y="374" fill="#8b949e">--- theirs ---     <tspan fill="#f85149">|	return Options{Retries: 5}</tspan></text>
+    <text x="24" y="396" fill="#8b949e">--- resolution --- <tspan fill="#7ee787">|	return Options{Retries: 5, Timeout: 30}</tspan></text>
+  </g>
+</svg>
